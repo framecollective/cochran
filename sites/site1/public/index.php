@@ -1,7 +1,7 @@
 <?php
 /*
-$HeadURL: https://textpattern.googlecode.com/svn/releases/4.5.5/source/index.php $
-$LastChangedRevision: 4086 $
+$HeadURL: https://textpattern.googlecode.com/svn/development/4.x/sites/site1/public/index.php $
+$LastChangedRevision: 3238 $
 */
 
 	// Make sure we display all errors that occur during initialization
@@ -45,11 +45,6 @@ $LastChangedRevision: 4086 $
 
 	define("txpinterface", "public");
 
-	if (!defined('txpath'))
-	{
-		define("txpath", dirname(__FILE__).'/textpattern');
-	}
-
 	// save server path to site root
 	if (!isset($here))
 	{
@@ -61,8 +56,13 @@ $LastChangedRevision: 4086 $
 	{
 		// Use buffering to ensure bogus whitespace in config.php is ignored
 		ob_start(NULL, 2048);
-		include txpath.'/config.php';
+		include '../private/config.php';
 		ob_end_clean();
+	}
+
+	if (!defined('txpath'))
+	{
+		define("txpath", realpath(dirname(__FILE__).'/../../../textpattern'));
 	}
 
 	include txpath.'/lib/constants.php';
@@ -70,13 +70,7 @@ $LastChangedRevision: 4086 $
 	if (!isset($txpcfg['table_prefix']))
 	{
 		txp_status_header('503 Service Unavailable');
-		exit('config.php is missing or corrupt.  To install Textpattern, visit <a href="./textpattern/setup/">textpattern/setup/</a>');
-	}
-
-	// custom caches et cetera?
-	if (isset($txpcfg['pre_publish_script']))
-	{
-		require $txpcfg['pre_publish_script'];
+		exit('config.php is missing or corrupt.  To install Textpattern, visit <a href="./setup/">textpattern/setup/</a>');
 	}
 
 	include txpath.'/publish.php';
