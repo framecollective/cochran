@@ -321,9 +321,7 @@ main {
         width: 60px; height: 60px;
         background: none;
         &:hover {
-            -webkit-box-shadow: inset 0 0 6px black;
-            -moz-box-shadow: inset 0 0 6px black;
-            box-shadow: inset 0 0 6px black;
+
         }
     }
     #home {
