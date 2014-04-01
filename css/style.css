@@ -108,7 +108,7 @@ h1 {
 h2 {
   font-family: "brandon-grotesque", sans-serif;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 40px;
   color: #333332; }
 
@@ -416,7 +416,7 @@ main {
   bottom: 0;
   right: -600px;
   width: 600px;
-  background: white;
+  background: rgba(0,0,0,0.8);
   z-index: 0;
   overflow-x: hidden;
   overflow-y: auto; }
@@ -426,8 +426,9 @@ main {
     width: 90%;
     margin: 80px auto auto; }
     #right #content-cont h2 {
-      color: #CD4D58; }
+      color: #FFF; }
     #right #content-cont p {
+        color: #FFF;
       line-height: 1.7; }
     #right #content-cont .foot {
       display: block;
